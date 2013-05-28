@@ -6,7 +6,7 @@ $def with (room)
 	$room.description
 </pre>
 
-$if "Death" in room.name: 
+$if "Death" in room.name or "The End" in room.name: 
 	<p><a href="/">Play Again?</a></p>
 $else:
 	<p>
