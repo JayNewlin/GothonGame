@@ -1,0 +1,32 @@
+Gothons Project
+
+Project
+
+* Create a .gitignore file
+* HIGH PRIORITY: Why can’t the user move forward? All user input brings them back to the Central Corridor (Stage 1).
+
+Styling
+
+* Add a background image – same all pages
+* Add a “cartoon” image to top right that changes room to room (This will take a bit of time to implement while we figure out the JS needed to do this.)
+* Set a font theme
+o Headers
+* Change text color to RED when in a “Death State”
+o Body Text
+
+App.py
+
+* Investigate possibility of bug in current lines 43-45, labeled “There is a bug here.” Spend no more than one hour in this investigation. Low priority, since everything works as-is.
+* Review lines 36-38, as prompted by author “Why is this here?” Spend not more than one hour on this. Low priority, since the game works as-is.
+
+Map.py
+
+* Change current titling of rooms to “Stages” (Stage I, Stage II, etc.)
+* Add logic to display the user’s choices in each situation. (Perhaps allow the user to input with radio buttons?)
+* Need to set up randomizer for bomb “keypad” (Logic exists in original game for this)
+* Need to import randomizer for safe escape pod from original game. (This version sets it to “2”.
+
+Future Development to Explore
+* Add content, rooms, outcomes
+* Bring in the lexicon from the prior project, and use it to “parse” the user’s input.
+* Change the styling (esp. background) for each room
