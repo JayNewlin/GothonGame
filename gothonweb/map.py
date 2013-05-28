@@ -12,7 +12,7 @@ class Room(object):
 		self.paths.update(paths)
 
 
-central_corridor = Room("Central Corridor",
+central_corridor = Room("Stage I: Central Corridor",
 """
 The Gothons of Planet Percal #25 have invaded your ship and destroyed
 your entire crew. You are the last surviving member and your last
@@ -26,7 +26,7 @@ flowing around his hate-filled body. He's blocking the door to the
 Armory and about to pull a weapon to blast you.
 """)
 
-central_corridor_shoot = Room("Central Corridor Death",
+central_corridor_shoot = Room("Stage I: Central Corridor Death",
 """
 Quick on the draw, you yank out your blaster and fire it at the Gothon.
 His clown costume is flowing and moving around his body, which throws
@@ -36,7 +36,7 @@ flies into an insane rage and blasts you repeatedly in the face until
 you are dead. Then he eats you.
 """)
 
-central_corridor_dodge = Room("Central Corridor Dodge-Death",
+central_corridor_dodge = Room("Stage I: Central Corridor Dodge-Death",
 """
 Like a world-class boxer you dodge, weave, slip, and slide just
 as the Gothon's blaster cranks a laser past your head.
@@ -46,7 +46,7 @@ You're only out a few moments ... then the Gothon stomps on
 your head and eats you.
 """)
 
-laser_weapon_armory = Room("Laser Weapon Armory",
+laser_weapon_armory = Room("Stage II: Laser Weapon Armory",
 """
 Lucky for you they made you learn Gothon insults in the Academy.
 You tell the one Gothon joke you know:
@@ -64,7 +64,7 @@ wrong 10 times then the lock closes forever, and you can't
 get the bomb. The code is 3 digits.
 """)
 
-armory_death = Room("Armory Death",
+armory_death = Room("Stage II: Armory Death",
 """
 The lock buzzes one last time and then you hear a sickening
 melting sound as the mechanism is fused together.
@@ -73,7 +73,7 @@ ship from their ship. You'll die in the explosion, of course...
 """)
 
 
-the_bridge = Room("The Bridge",
+the_bridge = Room("Stage III: The Bridge",
 """
 The container clicks open, and the seal breaks, letting gas out.
 You grab the neutron bomb and run as fas as you can to the
@@ -87,7 +87,7 @@ weapons out yet, as they see the active bomb under your
 arm and don't want to set it off.
 """)
 
-bridge_throw_bomb = Room("Bridge Death",
+bridge_throw_bomb = Room("Stage III: Bridge Death",
 """
 In a panic you throw the bomb at the group of Gothons
 and make a leap for the door. Just as you drop it a
@@ -98,7 +98,7 @@ when it goes off.
 """)
 
 
-escape_pod = Room("Escape Pod",
+escape_pod = Room("Stage IV: Escape Pod",
 """
 You point your blaster at the bomb under your arm,
 and the Gothons put their hands up and start to sweat.
@@ -119,7 +119,7 @@ do you take?"
 """)
 
 
-the_end_winner = Room("The End",
+the_end_winner = Room("Stage V: The End",
 """
 You jump into pod 2 and hit the eject button.
 The pod easily slides out into space, heading to
@@ -130,7 +130,7 @@ time.  You won!
 """)
 
 
-the_end_loser = Room("Death at the End",
+the_end_loser = Room("Stage V: Death at the End",
 """
 You jump into a random pod and hit the eject button.
 The pod escapes out into the void of space, then
