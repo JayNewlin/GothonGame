@@ -6,7 +6,10 @@ class Room(object):
 		self.paths = {}
 
 	def go(self, direction):
-		return self.paths.get(direction, None)
+		room = self.paths.get(direction, None)
+		if not room:
+			room = self.paths.get('death_direction', None)
+		return room
 
 	def add_paths(self, paths):
 		self.paths.update(paths)
@@ -151,7 +154,7 @@ the_bridge.add_paths({
 
 laser_weapon_armory.add_paths ({
 	'0132': the_bridge,
-	'*': armory_death
+	'death_direction': armory_death
 })
 
 central_corridor.add_paths({
