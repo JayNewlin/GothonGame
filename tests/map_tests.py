@@ -30,16 +30,18 @@ def test_map():
 	assert_equal(start.go('west').go('east'), start)
 	assert_equal(start.go('down').go('up'), start)
 
+# Rewritten after START became a function
 def test_gothon_game_start():
-	assert_equal(START.go('shoot!'), central_corridor_shoot)
-	assert_equal(START.go('dodge!'), central_corridor_dodge)
-
-	room = START.go('tell a joke')
-	assert_equal(room, laser_weapon_armory)
+  	assert_equal(central_corridor.go('shoot!'), central_corridor_shoot)
+  	assert_equal(central_corridor.go('dodge!'), central_corridor_dodge)
+  	assert_equal(central_corridor.go('tell a joke'), laser_weapon_armory)
 
 def test_laser_weapon_armory():
-	assert_equal(laser_weapon_armory.go('0132'), the_bridge)
-	assert_equal(laser_weapon_armory.go('*'), armory_death)	
+ 	assert_equal(laser_weapon_armory.go('*'), armory_death)
+ 	# We can't get the keypad_code from the function, so it prints to the terminal, so that we can test 
+ 	# the_bridge path successfully on the web.
+ 	# assert_equal(laser_weapon_armory.go(keypad_code), the_bridge)
+	
 
 def test_the_bridge():
 	assert_equal(the_bridge.go('throw the bomb'), bridge_throw_bomb)

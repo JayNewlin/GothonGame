@@ -1,3 +1,6 @@
+from random import randint
+
+
 class Room(object):
 
 	def __init__(self, name, description):
@@ -6,7 +9,10 @@ class Room(object):
 		self.paths = {}
 
 	def go(self, direction):
-		return self.paths.get(direction, None)
+		room = self.paths.get(direction, None)
+		if not room:
+			room = self.paths.get('death_direction', None)
+		return room
 
 	def add_paths(self, paths):
 		self.paths.update(paths)
@@ -59,10 +65,13 @@ You do a dive-roll into the Weapons Armory, crouch, and scan the room
 for more Gothons that might be hiding. It's dead quiet...too quiet.
 You stand up and run to the far side of the room and find the
 neutron bomb in its container. There's a keypad lock on the box,
-and you need the code to get the bomb out. If you get the code
-wrong 10 times then the lock closes forever, and you can't
-get the bomb. The code is 3 digits.
+and you need the code to get the bomb out.  The code is 3 digits.
 """)
+
+#---This is text to be added back after issue 18 is resolved---
+# If you get the code
+# wrong 10 times then the lock closes forever, and you can't
+# get the bomb.
 
 armory_death = Room("Stage II: Armory Death",
 """
@@ -139,25 +148,33 @@ into human jelly. Squish!
 """)
 
 
-escape_pod.add_paths({
-	'2': the_end_winner,
-	'*': the_end_loser
-})
+def START():
+#	global keypad_code
+	keypad_code = "%d%d%d" % (randint(1,9), randint(1,9), randint(1,9))
+	print "The Armory keypad_code is", keypad_code
+	
+	escape_pod.add_paths({
+		'2': the_end_winner,
+		'*': the_end_loser
+	})
 
-the_bridge.add_paths({
-	'throw the bomb': bridge_throw_bomb,
-	'slowly place the bomb': escape_pod
-})
+	the_bridge.add_paths({
+		'throw the bomb': bridge_throw_bomb,
+		'slowly place the bomb': escape_pod
+	})
 
-laser_weapon_armory.add_paths ({
-	'0132': the_bridge,
-	'*': armory_death
-})
+	laser_weapon_armory.add_paths ({
+		keypad_code: the_bridge,
+		'death_direction': armory_death
+	})
 
-central_corridor.add_paths({
-	'shoot!': central_corridor_shoot,
-	'dodge!': central_corridor_dodge,
-	'tell a joke': laser_weapon_armory
-})
+	central_corridor.add_paths({
+		'shoot!': central_corridor_shoot,
+		'dodge!': central_corridor_dodge,
+		'tell a joke': laser_weapon_armory
+	})
+	
+	return central_corridor
 
-START = central_corridor
+
+

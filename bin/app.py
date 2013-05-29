@@ -1,3 +1,4 @@
+
 import web
 from gothonweb import map
 
@@ -23,7 +24,7 @@ render = web.template.render('templates/', base="layout")
 class Index(object):
 	def GET(self):
 		# this is used to "setup" the session with starting values
-		session.room = map.START
+		session.room = map.START()
 		web.seeother("/game")
 
 
