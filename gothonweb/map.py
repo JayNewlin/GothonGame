@@ -1,3 +1,5 @@
+from random import randint
+
 class Room(object):
 
 	def __init__(self, name, description):
@@ -13,6 +15,8 @@ class Room(object):
 
 	def add_paths(self, paths):
 		self.paths.update(paths)
+
+keypad_code = "%d%d%d" % (randint(1,9), randint(1,9), randint(1,9))
 
 
 central_corridor = Room("Stage I: Central Corridor",
@@ -153,7 +157,7 @@ the_bridge.add_paths({
 })
 
 laser_weapon_armory.add_paths ({
-	'0132': the_bridge,
+	keypad_code: the_bridge,
 	'death_direction': armory_death
 })
 
