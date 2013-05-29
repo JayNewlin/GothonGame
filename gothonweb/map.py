@@ -1,5 +1,6 @@
 from random import randint
 
+
 class Room(object):
 
 	def __init__(self, name, description):
@@ -15,8 +16,6 @@ class Room(object):
 
 	def add_paths(self, paths):
 		self.paths.update(paths)
-
-keypad_code = "%d%d%d" % (randint(1,9), randint(1,9), randint(1,9))
 
 
 central_corridor = Room("Stage I: Central Corridor",
@@ -146,25 +145,33 @@ into human jelly. Squish!
 """)
 
 
-escape_pod.add_paths({
-	'2': the_end_winner,
-	'*': the_end_loser
-})
+def START():
+#	global keypad_code
+	keypad_code = "%d%d%d" % (randint(1,9), randint(1,9), randint(1,9))
+	print "The Armory keypad_code is", keypad_code
+	
+	escape_pod.add_paths({
+		'2': the_end_winner,
+		'*': the_end_loser
+	})
 
-the_bridge.add_paths({
-	'throw the bomb': bridge_throw_bomb,
-	'slowly place the bomb': escape_pod
-})
+	the_bridge.add_paths({
+		'throw the bomb': bridge_throw_bomb,
+		'slowly place the bomb': escape_pod
+	})
 
-laser_weapon_armory.add_paths ({
-	keypad_code: the_bridge,
-	'death_direction': armory_death
-})
+	laser_weapon_armory.add_paths ({
+		keypad_code: the_bridge,
+		'death_direction': armory_death
+	})
 
-central_corridor.add_paths({
-	'shoot!': central_corridor_shoot,
-	'dodge!': central_corridor_dodge,
-	'tell a joke': laser_weapon_armory
-})
+	central_corridor.add_paths({
+		'shoot!': central_corridor_shoot,
+		'dodge!': central_corridor_dodge,
+		'tell a joke': laser_weapon_armory
+	})
+	
+	return central_corridor
 
-START = central_corridor
+
+
