@@ -65,10 +65,13 @@ You do a dive-roll into the Weapons Armory, crouch, and scan the room
 for more Gothons that might be hiding. It's dead quiet...too quiet.
 You stand up and run to the far side of the room and find the
 neutron bomb in its container. There's a keypad lock on the box,
-and you need the code to get the bomb out. If you get the code
-wrong 10 times then the lock closes forever, and you can't
-get the bomb. The code is 3 digits.
+and you need the code to get the bomb out.  The code is 3 digits.
 """)
+
+#---This is text to be added back after issue 18 is resolved---
+# If you get the code
+# wrong 10 times then the lock closes forever, and you can't
+# get the bomb.
 
 armory_death = Room("Stage II: Armory Death",
 """
