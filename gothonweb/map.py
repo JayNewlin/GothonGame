@@ -129,31 +129,30 @@ do you take?"
 
 
 def START():
-#	global keypad_code
 	keypad_code = "%d%d%d" % (randint(1,9), randint(1,9), randint(1,9))
 	print "The Armory keypad_code is", keypad_code
 
-	good_pod = randint(1,5)
+	good_pod = str(randint(1,5))
 	print "The good escape pod is", good_pod
 
-	winner_description = ("""
-You jump into pod %r and hit the eject button.
+	the_end_winner = Room("The End",
+"""
+You jump into an escape pod and hit the eject button.
 The pod easily slides out into space, heading to
 the planet below. As it flies to the planet, you look
 back and see your ship implode, then explode like a
 bright star, taking out the Gothon ship at the same
 time.  You won!
-""", good_pod)
-	
-	the_end_winner = Room("Stage V: The End", winner_description)
+""")
 
-	loser_description = """
+
+	the_end_loser = Room("Death at the End",
+"""
 You jump into a random pod and hit the eject button.
 The pod escapes out into the void of space, then
 implodes as the hull ruptures, crushing your body
 into human jelly. Squish!
-"""
-	the_end_loser = Room("Stage V: Death at the End", loser_description)
+""")
 	
 	escape_pod.add_paths({
 		good_pod: the_end_winner,
